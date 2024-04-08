@@ -7,7 +7,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import { customStlyes } from "../ServicesSection/index.styles";
+import { customStlyes } from "./index.styles";
 
 interface Props {
   id: string;
@@ -23,23 +23,15 @@ const AboutUs = ({ id }: Props) => (
       </Divider>
     </Box>
 
-    <Card
-      sx={{
-        boxShadow: 5,
-        borderRadius: 4,
-        mx: 12,
-        mt: 6,
-        display: { xs: "none", md: "block" },
-      }}
-    >
+    <Card sx={customStlyes.card}>
       <Stack direction={{ xs: "column", md: "row" }}>
         <CardMedia
           component="img"
-          sx={{ width: "35vw", height: 400 }}
+          sx={customStlyes.cardMedia}
           image={`${process.env.PUBLIC_URL}/images/about.png`}
         />
 
-        <CardContent sx={{ display: "flex", alignItems: "center" }}>
+        <CardContent sx={customStlyes.cardContent}>
           <Stack spacing={2}>
             <Typography>
               Welcome to [Your Cleaning Agency Name], where cleanliness meets
@@ -77,14 +69,7 @@ const AboutUs = ({ id }: Props) => (
       </Stack>
     </Card>
 
-    <Card
-      sx={{
-        borderRadius: 4,
-        mx: 5,
-        mt: 6,
-        display: { xs: "block", md: "none" },
-      }}
-    >
+    <Card sx={customStlyes.textCard}>
       <CardMedia
         component="img"
         image={`${process.env.PUBLIC_URL}/images/about.png`}

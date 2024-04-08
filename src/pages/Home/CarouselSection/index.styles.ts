@@ -6,4 +6,7 @@ export const customStyles = {
     backgroundRepeat: "no-repeat",
     backgroundPosition: "top",
   },
+  carousel: {
+    mt: 8,
+  },
 };

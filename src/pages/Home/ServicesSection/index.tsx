@@ -56,7 +56,7 @@ const ServicesSection = ({ id }: Props) => (
     <Grid container spacing={4} mt={2} justifyContent="center">
       {serviceList.map((service, index) => (
         <Grid key={index} item>
-          <Card sx={{ maxWidth: 300, boxShadow: 5 }}>
+          <Card sx={customStlyes.card}>
             <CardActionArea>
               <CardMedia component="img" height="200" image={service.image} />
 

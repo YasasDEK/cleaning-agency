@@ -6,4 +6,8 @@ export const customStlyes = {
     justifyContent: "center",
     flexWrap: "wrap",
   },
+  card: {
+    maxWidth: 300,
+    boxShadow: 5,
+  },
 };
