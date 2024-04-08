@@ -1,3 +1,6 @@
-export const testFunction = () => {
-  return "This is a test function";
+export const handleNavigation = (sectionId: string) => {
+  const section = document.getElementById(sectionId);
+  if (section) {
+    section.scrollIntoView({ behavior: "smooth" });
+  }
 };

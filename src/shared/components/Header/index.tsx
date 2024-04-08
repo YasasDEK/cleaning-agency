@@ -11,8 +11,14 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import { customStyles } from "./index.styles";
+import { handleNavigation } from "../../utils/helpers";
 
-const pages = ["Home", "Our Services", "About us"];
+const pages = [
+  { id: "home", name: "Home" },
+  { id: "services", name: "Our Services" },
+  { id: "about", name: "About us" },
+  { id: "contact", name: "Contact us" },
+];
 
 const Header = () => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -23,7 +29,9 @@ const Header = () => {
     setAnchorElNav(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
+  const handleMenuSelect = (sectionId: string) => {
+    handleNavigation(sectionId);
+
     setAnchorElNav(null);
   };
 
@@ -42,13 +50,13 @@ const Header = () => {
             </Box>
 
             <Box sx={customStyles.pageButtonsBox}>
-              {pages.map((page) => (
+              {pages.map((page, index) => (
                 <Button
-                  key={page}
-                  onClick={handleCloseNavMenu}
+                  key={index}
+                  onClick={() => handleMenuSelect(page.id)}
                   sx={customStyles.pageButton}
                 >
-                  {page}
+                  {page.name}
                 </Button>
               ))}
             </Box>
@@ -67,16 +75,16 @@ const Header = () => {
                 anchorEl={anchorElNav}
                 keepMounted
                 open={Boolean(anchorElNav)}
-                onClose={handleCloseNavMenu}
+                onClick={() => setAnchorElNav(null)}
                 sx={customStyles.menu}
               >
-                {pages.map((page) => (
+                {pages.map((page, index) => (
                   <MenuItem
                     sx={customStyles.menuItem}
-                    key={page}
-                    onClick={handleCloseNavMenu}
+                    key={index}
+                    onClick={() => handleMenuSelect(page.id)}
                   >
-                    <Typography textAlign="center">{page}</Typography>
+                    <Typography textAlign="center">{page.name}</Typography>
                   </MenuItem>
                 ))}
               </Menu>

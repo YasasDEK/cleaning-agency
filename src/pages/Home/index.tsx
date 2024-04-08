@@ -1,59 +1,21 @@
-import { Box, Typography } from "@mui/material";
-import CustomCarousel from "../../shared/components/CustomCarousel";
 import Header from "../../shared/components/Header";
+import AboutUs from "./AboutUs";
+import CarouselSection from "./CarouselSection";
+import ContactUs from "./ContactUs";
+import ServicesSection from "./ServicesSection";
 
 const Home = () => {
   return (
     <>
       <Header />
 
-      <CustomCarousel />
+      <CarouselSection id="home" />
 
-      <Box
-        sx={{
-          position: "absolute",
-          top: 100,
-          display: "flex",
-          width: "98%",
-          justifyContent: "center",
-          zIndex: 1,
-          flexDirection: "column",
-          mt: 16.5,
-        }}
-      >
-        <Typography
-          variant="h4"
-          fontFamily="'Bebas Neue', sans-serif"
-          sx={{ display: "flex", justifyContent: "center" }}
-        >
-          Welcome to
-        </Typography>
+      <ServicesSection id="services" />
 
-        <Typography
-          variant="h1"
-          fontFamily="'Bebas Neue', sans-serif"
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            flexWrap: "wrap",
-            textAlign: "center",
-          }}
-        >
-          Company
-        </Typography>
+      <AboutUs id="about" />
 
-        <Typography
-          variant="h6"
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            flexWrap: "wrap",
-            textAlign: "center",
-          }}
-        >
-          Sparkle & Shine: Your Premier Cleaning Solution
-        </Typography>
-      </Box>
+      <ContactUs id="contact" />
     </>
   );
 };
