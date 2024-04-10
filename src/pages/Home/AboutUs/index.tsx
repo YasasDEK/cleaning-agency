@@ -7,7 +7,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import { customStlyes } from "./index.styles";
+import { customStyles } from "./index.styles";
 
 interface Props {
   id: string;
@@ -17,24 +17,24 @@ const AboutUs = ({ id }: Props) => (
   <Box id={id}>
     <Box id={id} mt={6} px={4}>
       <Divider>
-        <Typography variant="h3" sx={customStlyes.text}>
+        <Typography variant="h3" sx={customStyles.text}>
           About us
         </Typography>
       </Divider>
     </Box>
 
-    <Card sx={customStlyes.card}>
+    <Card sx={customStyles.card}>
       <Stack direction={{ xs: "column", md: "row" }}>
         <CardMedia
           component="img"
-          sx={customStlyes.cardMedia}
+          sx={customStyles.cardMedia}
           image={`${process.env.PUBLIC_URL}/images/about.png`}
         />
 
-        <CardContent sx={customStlyes.cardContent}>
+        <CardContent sx={customStyles.cardContent}>
           <Stack spacing={2}>
             <Typography>
-              Welcome to [Your Cleaning Agency Name], where cleanliness meets
+              Welcome to Optimum cleaning services, where cleanliness meets
               convenience. We are a dedicated team of professionals committed to
               delivering top-notch cleaning services tailored to meet your
               needs. With years of experience in the industry, we understand the
@@ -43,7 +43,7 @@ const AboutUs = ({ id }: Props) => (
             </Typography>
 
             <Typography>
-              At [Your Cleaning Agency Name], we pride ourselves on our
+              At Optimum cleaning services, we pride ourselves on our
               attention to detail and commitment to customer satisfaction. Our
               skilled cleaners undergo rigorous training and utilize the latest
               techniques and eco-friendly products to ensure exceptional results
@@ -59,7 +59,7 @@ const AboutUs = ({ id }: Props) => (
             </Typography>
 
             <Typography>
-              Choose [Your Cleaning Agency Name] for a spotless space and peace
+              Choose Optimum cleaning services for a spotless space and peace
               of mind. Let us handle the dirty work while you focus on what
               matters most. Contact us today to schedule your cleaning
               appointment!
@@ -69,7 +69,7 @@ const AboutUs = ({ id }: Props) => (
       </Stack>
     </Card>
 
-    <Card sx={customStlyes.textCard}>
+    <Card sx={customStyles.textCard}>
       <CardMedia
         component="img"
         image={`${process.env.PUBLIC_URL}/images/about.png`}
@@ -78,7 +78,7 @@ const AboutUs = ({ id }: Props) => (
       <CardContent>
         <Stack spacing={2}>
           <Typography>
-            Welcome to [Your Cleaning Agency Name], where cleanliness meets
+            Welcome to Optimum cleaning services, where cleanliness meets
             convenience. We are a dedicated team of professionals committed to
             delivering top-notch cleaning services tailored to meet your needs.
             With years of experience in the industry, we understand the
@@ -87,7 +87,7 @@ const AboutUs = ({ id }: Props) => (
           </Typography>
 
           <Typography>
-            At [Your Cleaning Agency Name], we pride ourselves on our attention
+            At Optimum cleaning services, we pride ourselves on our attention
             to detail and commitment to customer satisfaction. Our skilled
             cleaners undergo rigorous training and utilize the latest techniques
             and eco-friendly products to ensure exceptional results every time.
@@ -101,7 +101,7 @@ const AboutUs = ({ id }: Props) => (
           </Typography>
 
           <Typography>
-            Choose [Your Cleaning Agency Name] for a spotless space and peace of
+            Choose Optimum cleaning services for a spotless space and peace of
             mind. Let us handle the dirty work while you focus on what matters
             most. Contact us today to schedule your cleaning appointment!
           </Typography>

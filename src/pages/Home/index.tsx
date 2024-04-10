@@ -1,3 +1,4 @@
+import Footer from "../../shared/components/Footer";
 import Header from "../../shared/components/Header";
 import AboutUs from "./AboutUs";
 import CarouselSection from "./CarouselSection";
@@ -16,6 +17,8 @@ const Home = () => {
       <AboutUs id="about" />
 
       <ContactUs id="contact" />
+
+      <Footer />
     </>
   );
 };

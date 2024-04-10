@@ -1,52 +1,8 @@
 import { colorPalette } from "../../utils/constants";
 
 export const customStyles = {
-  container: {
-    display: "flex",
-    justifyContent: "center",
-  },
-  headerBox: {
-    zIndex: 1,
-    position: "fixed",
-  },
-  contentBox: {
-    width: "90vw",
-    flexWrap: "wrap",
-  },
-  logoButton: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    px: 8,
-  },
-  logo: {
-    fontFamily: "'Bebas Neue', sans-serif",
-    fontSize: 25,
-  },
-  buttonStack: {
-    display: "flex",
-  },
-  emailButton: {
-    border: "1px solid #fe6c0a",
-    color: colorPalette.orangeColor,
-    "&:hover": {
-      border: "1px solid #fe6c0a",
-      opacity: 0.8,
-    },
-  },
-  ideasText: {
-    fontWeight: "bold",
-    fontSize: 12,
-    mr: 1,
-  },
-  divider: {
-    width: "100vw",
-    background: "white",
-  },
-
-  // new
   toolbar: {
-    color: "black",
+    color: colorPalette.black,
   },
   mainBox: {
     width: "100vw",
@@ -88,7 +44,11 @@ export const customStyles = {
     fontWeight: "bold",
   },
   title: {
-    fontWeight: "bold",
+    mt: 1,
+    display: "block",
+    color: colorPalette.title,
+    fontSize: 22,
+    fontFamily: "'Bebas Neue', sans-serif",
   },
   pageButtonsBox: {
     display: {
@@ -97,10 +57,20 @@ export const customStyles = {
     },
   },
   pageButton: {
-    my: 2,
+    mt: 1,
     display: "block",
+    color: colorPalette.white,
+    fontSize: 22,
+    fontFamily: "'Bebas Neue', sans-serif",
   },
   appBar: {
-    background: "white",
+    background: colorPalette.headerBackground,
+  },
+  menuText: {
+    fontSize: 22,
+    fontFamily: "'Bebas Neue', sans-serif",
+  },
+  image: {
+    borderRadius: 8,
   },
 };

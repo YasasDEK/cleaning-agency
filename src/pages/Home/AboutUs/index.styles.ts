@@ -1,4 +1,6 @@
-export const customStlyes = {
+import { colorPalette } from "../../../shared/utils/constants";
+
+export const customStyles = {
   card: {
     boxShadow: 5,
     borderRadius: 4,
@@ -15,6 +17,7 @@ export const customStlyes = {
     fontFamily: "'Bebas Neue', sans-serif",
     justifyContent: "center",
     flexWrap: "wrap",
+    color: colorPalette.sectionTitle,
   },
   cardMedia: {
     width: "35vw",

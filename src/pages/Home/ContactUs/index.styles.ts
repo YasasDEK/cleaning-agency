@@ -1,3 +1,5 @@
+import { colorPalette } from "../../../shared/utils/constants";
+
 export const customStyles = {
   card: {
     boxShadow: 5,
@@ -21,17 +23,30 @@ export const customStyles = {
     fontFamily: "'Bebas Neue', sans-serif",
     justifyContent: "center",
     flexWrap: "wrap",
+    color: colorPalette.sectionTitle,
   },
   submitButton: {
     borderRadius: 32,
+    background: colorPalette.headerBackground,
+    fontSize: 20,
+    fontFamily: "'Bebas Neue', sans-serif",
+    "&:hover": {
+      backgroundColor: colorPalette.title,
+    },
   },
   divider: {
+    fontSize: 24,
+    color: colorPalette.headerBackground,
+    fontFamily: "'Bebas Neue', sans-serif",
     display: {
       xs: "none",
       md: "inherit",
     },
   },
   mobileDivider: {
+    fontSize: 24,
+    color: colorPalette.headerBackground,
+    fontFamily: "'Bebas Neue', sans-serif",
     display: {
       xs: "inherit",
       md: "none",
@@ -40,10 +55,14 @@ export const customStyles = {
   button: {
     width: "80%",
     gap: 1,
-    py: 1,
     borderRadius: 32,
-    fontSize: 16,
+    fontSize: 20,
+    fontFamily: "'Bebas Neue', sans-serif",
     textTransform: "none",
+    background: colorPalette.headerBackground,
+    "&:hover": {
+      backgroundColor: colorPalette.title,
+    },
   },
   mailStack: {
     backgroundSize: "cover",
@@ -56,5 +75,6 @@ export const customStyles = {
   formLabel: {
     fontFamily: "'Bebas Neue', sans-serif",
     mb: "-15px !important",
+    color: colorPalette.sectionTitle,
   },
 };

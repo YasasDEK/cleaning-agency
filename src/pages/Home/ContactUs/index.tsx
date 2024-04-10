@@ -13,11 +13,12 @@ import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import CallIcon from "@mui/icons-material/Call";
 import { Link } from "react-router-dom";
 import { customStyles } from "./index.styles";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { z } from "zod";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import emailjs from "@emailjs/browser";
+import { colorPalette } from "../../../shared/utils/constants";
 
 interface Props {
   id: string;
@@ -53,6 +54,7 @@ const formSchema = z.object({
 type FormSchema = z.infer<typeof formSchema>;
 
 const ContactUs = ({ id }: Props) => {
+  const form = useRef<HTMLFormElement | null>(null);
   const [submitSuccessful, setSubmitSuccessful] = useState(false);
 
   const { handleSubmit, getValues, control, formState, reset } =
@@ -66,33 +68,34 @@ const ContactUs = ({ id }: Props) => {
     setSubmitSuccessful(false);
   };
 
-  const onSubmit = () => {
+  const onSubmit = async () => {
     if (Boolean(getError())) {
       return;
     }
 
-    emailjs
+    console.log("test = ", getValues().message, form.current);
+
+    await emailjs
       .sendForm(
-        "service_qmo1hky",
+        "service_mzr8ote",
         "template_rp4lv3j",
-        getValues().message,
-        "replace with user id"
+        form.current!,
+        "qCP40VuVycOreI8-F"
       )
       .then(
-        (result) => {
-          console.log(result.text);
-          console.log("message sent");
+        () => {
+          setSubmitSuccessful(true);
+
+          reset();
+
+          setTimeout(resetAlerts, 3000);
         },
         (error) => {
-          console.log(error.text);
+          console.log(error);
+
+          setTimeout(resetAlerts, 3000);
         }
       );
-
-    setSubmitSuccessful(true);
-
-    reset();
-
-    setTimeout(resetAlerts, 3000);
   };
 
   const getError = () => {
@@ -154,7 +157,7 @@ const ContactUs = ({ id }: Props) => {
 
       <Card sx={customStyles.card}>
         <Stack width={{ xs: "100%", md: "60%" }}>
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form ref={form} onSubmit={handleSubmit(onSubmit)}>
             <Stack spacing={2}>
               <Typography sx={customStyles.formLabel}>Name</Typography>
 
@@ -163,6 +166,7 @@ const ContactUs = ({ id }: Props) => {
                 control={control}
                 render={({ field: { onChange, value } }) => (
                   <TextField
+                    name="name"
                     fullWidth
                     size="small"
                     value={value}
@@ -178,6 +182,7 @@ const ContactUs = ({ id }: Props) => {
                 control={control}
                 render={({ field: { onChange, value } }) => (
                   <TextField
+                    name="email"
                     fullWidth
                     size="small"
                     value={value}
@@ -193,9 +198,10 @@ const ContactUs = ({ id }: Props) => {
                 control={control}
                 render={({ field: { onChange, value } }) => (
                   <TextField
+                    name="mobile"
                     InputProps={{
                       startAdornment: (
-                        <InputAdornment position="start">+91</InputAdornment>
+                        <InputAdornment position="start">+61</InputAdornment>
                       ),
                     }}
                     fullWidth
@@ -213,6 +219,7 @@ const ContactUs = ({ id }: Props) => {
                 control={control}
                 render={({ field: { onChange, value } }) => (
                   <TextField
+                    name="message"
                     fullWidth
                     multiline
                     rows={3}
@@ -272,9 +279,9 @@ const ContactUs = ({ id }: Props) => {
                 spacing={2}
                 display="flex"
                 alignItems="center"
-                color="white"
+                color={colorPalette.white}
               >
-                <Typography>Send us an Email</Typography>
+                <Box>Send us an Email</Box>
 
                 <MailOutlineIcon />
               </Stack>
@@ -282,7 +289,7 @@ const ContactUs = ({ id }: Props) => {
           </Button>
 
           <Button
-            onClick={() => (window.location.href = `tel:${+91480319262}`)}
+            onClick={() => (window.location.href = `tel:${+61480319262}`)}
             sx={customStyles.button}
             fullWidth
             variant="contained"

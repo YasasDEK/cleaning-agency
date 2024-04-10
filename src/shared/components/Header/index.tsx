@@ -7,11 +7,12 @@ import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import { customStyles } from "./index.styles";
 import { handleNavigation } from "../../utils/helpers";
+import { useState } from "react";
+import { colorPalette } from "../../utils/constants";
 
 const pages = [
   { id: "home", name: "Home" },
@@ -21,15 +22,16 @@ const pages = [
 ];
 
 const Header = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
-    null
-  );
+  const [option, setOption] = useState<string | null>("home");
+  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
 
   const handleMenuSelect = (sectionId: string) => {
+    setOption(sectionId);
+
     handleNavigation(sectionId);
 
     setAnchorElNav(null);
@@ -41,12 +43,14 @@ const Header = () => {
         <Toolbar disableGutters sx={customStyles.toolbar}>
           <Box sx={customStyles.mainBox}>
             <Box sx={customStyles.innerBox}>
-              <Avatar
-                alt="Remy Sharp"
-                src={`${process.env.PUBLIC_URL}/images/logoCircle.png`}
+              <img
+                alt="logo"
+                width={120}
+                style={customStyles.image}
+                src={`${process.env.PUBLIC_URL}/images/logo.png`}
               />
 
-              <Typography sx={customStyles.title}>Hello</Typography>
+              <Typography sx={customStyles.title}>cleaning services</Typography>
             </Box>
 
             <Box sx={customStyles.pageButtonsBox}>
@@ -54,7 +58,15 @@ const Header = () => {
                 <Button
                   key={index}
                   onClick={() => handleMenuSelect(page.id)}
-                  sx={customStyles.pageButton}
+                  sx={[
+                    customStyles.pageButton,
+                    {
+                      color:
+                        option === page.id
+                          ? colorPalette.title
+                          : colorPalette.white,
+                    },
+                  ]}
                 >
                   {page.name}
                 </Button>
@@ -84,7 +96,9 @@ const Header = () => {
                     key={index}
                     onClick={() => handleMenuSelect(page.id)}
                   >
-                    <Typography textAlign="center">{page.name}</Typography>
+                    <Typography textAlign="center" sx={customStyles.menuText}>
+                      {page.name}
+                    </Typography>
                   </MenuItem>
                 ))}
               </Menu>

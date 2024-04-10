@@ -15,7 +15,7 @@ const carouselImages = [
 
 const CarouselSection = ({ id }: Props) => (
   <Box id={id}>
-    <Carousel autoPlay navButtonsAlwaysVisible sx={customStyles.carousel}>
+    <Carousel swipe autoPlay sx={customStyles.carousel}>
       {carouselImages.map((image, index) => (
         <Box
           key={index}
